@@ -1,0 +1,35 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "vue"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 8
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    "syntax-dynamic-import",
+    [
+      "transform-runtime",
+      {
+        "polyfill": true,
+        "regenerator": true
+      }
+    ]
+  ]
+}
