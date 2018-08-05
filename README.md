@@ -1,4 +1,4 @@
-# vuessr-cli
+# VUE-CLI-SSR-WEBPACK4
 
 > A Vue.js project.
 
@@ -16,7 +16,7 @@ This project contain:
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8889
 npm run dev
 
 # build for production with minification
@@ -78,7 +78,7 @@ externals: nodeExternals({
 
 ## Not working
 
-`vue-loading-spinner` is not fully working
+Packages like `vue-loading-spinner` are not fully working
 
 ## Todos
 

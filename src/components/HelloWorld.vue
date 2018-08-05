@@ -1,7 +1,5 @@
-<template>
+  <template>
   <div class="hello">
-    <rotate-square2></rotate-square2>
-    <cube-shadow></cube-shadow>
     <pulse-loader></pulse-loader>
     <h1>{{ msg }} - {{env}} - {{rangeLimit}}</h1>
     <p>It's time for you to integrate it into your application</p>
@@ -11,9 +9,7 @@
   </div>
 </template>
 
-<script>
-import { RotateSquare2,
-	CubeShadow } from "vue-loading-spinner"
+  <script>
 import PulseLoader from "vue-spinner/src/PulseLoader.vue"
 
 export default {
@@ -58,12 +54,11 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(process.env, process.env.RANGE_LIMIT)
 	}
 }
 </script>
 
-<style>
+  <style>
 h1,
 h2 {
   font-weight: normal;
