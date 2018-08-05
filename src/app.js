@@ -5,7 +5,7 @@ import { createStore } from "@store"
 import { createRouter } from "@router"
 import { sync } from "vuex-router-sync"
 import headMixin from "./mixins/head"
-
+// import * as filters from "@filters/filters"
 Vue.config.debug = true
 
 // mixin for handling title

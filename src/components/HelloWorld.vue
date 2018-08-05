@@ -15,8 +15,6 @@ import PulseLoader from "vue-spinner/src/PulseLoader.vue"
 export default {
 	name: "HelloWorld",
 	components: {
-		RotateSquare2,
-		CubeShadow,
 		PulseLoader
 	},
 	head: {

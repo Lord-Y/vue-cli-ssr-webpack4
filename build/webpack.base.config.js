@@ -21,13 +21,11 @@ module.exports = {
 			"@statics": path.resolve(__dirname, "../statics"),
 			"@src": path.resolve(__dirname, "../src"),
 			"@components": path.resolve(__dirname, "../src/components"),
-			"@images": path.resolve(__dirname, "../src/images"),
 			"@router": path.resolve(__dirname, "../src/router"),
 			"@store": path.resolve(__dirname, "../src/store"),
 			"@mixins": path.resolve(__dirname, "../src/mixins"),
 			"@filters": path.resolve(__dirname, "../src/filters"),
 			"@directives": path.resolve(__dirname, "../src/directives"),
-			"@util": path.resolve(__dirname, "../src/util"),
 			"@api": path.resolve(__dirname, "../src/api"),
 			"@js": path.resolve(__dirname, "../src/js")
 		},
