@@ -17,31 +17,23 @@ export default {
 	components: {
 		PulseLoader
 	},
-	head: {
-		title() {
-			return "Hello world"
-		},
-		meta: [
-			{ name: "description", content: "summary" },
-			{ name: "keywords", content: "summary" },
-			{ name: "twitter:card", content: "summary" },
-			{ name: "twitter:site", content: "@jqEmprendedorVE" },
-			{ name: "twitter:creator", content: "@jqEmprendedorVE" },
-			{ name: "twitter:url", content: "https://vue-firebase-ssr.firebaseapp.com" },
-			{ name: "twitter:description", content: "Modelo de Vuejs SSR con Firebase Cloud Function + Hosting" },
-			{ name: "twitter:image", content: "https://www.filepicker.io/api/file/nS7a8itSTcaAsyct6rVp" },
-			{ property: "og:title", content: "summary" },
-			{ property: "og:type", content: "summary" },
-			{ property: "og:url", content: "summary" },
-			{ property: "og:image", content: "summary" },
-			{ property: "twitter:card", content: "summary" }
-		]
+	metaInfo() {
+		return {
+			title: this.meta.title,
+			meta: [
+				{ vmid: "description", name: "description", content: this.meta.description }
+			]
+		}
 	},
 	data() {
 		return {
 			msg: "Welcome to Your SSR Template",
 			env: process.env.NODE_ENV,
 			rangeLimit: process.env.RANGE_LIMIT,
+			meta: {
+				title: "Page title",
+				description: "Yolooo"
+			},
 			loading: {
 				loading: {
 					active: false,
@@ -52,6 +44,8 @@ export default {
 		}
 	},
 	mounted() {
+		// if you want to updated title after page loaded
+		// this.meta.title = "test"
 	}
 }
 </script>

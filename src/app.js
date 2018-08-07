@@ -4,12 +4,10 @@ import App from "./App.vue"
 import { createStore } from "@store"
 import { createRouter } from "@router"
 import { sync } from "vuex-router-sync"
-import headMixin from "./mixins/head"
 // import * as filters from "@filters/filters"
+import VueMeta from "vue-meta"
+Vue.use(VueMeta)
 Vue.config.debug = true
-
-// mixin for handling title
-Vue.mixin(headMixin)
 // // register global utility filters.
 // Object.keys(filters).forEach(key => {
 //     Vue.filter(key, filters[key])

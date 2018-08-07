@@ -95,3 +95,4 @@ Shoutout to these projects who inspire me for my purpose:
 * [doabit/vue-ssr-starter-kit](https://github.com/doabit/vue-ssr-starter-kit)
 * [devCrossNet/vue-starter](https://github.com/devCrossNet/vue-starter)
 * [jqEmprendedorVE/vue-firebase-ssr](https://github.com/jqEmprendedorVE/vue-firebase-ssr)
+* [declandewet/vue-meta](https://github.com/declandewet/vue-meta)

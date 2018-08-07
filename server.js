@@ -108,6 +108,9 @@ function render(req, res) {
 		if (err) {
 			return handleError(err)
 		}
+		const {
+			title, htmlAttrs, bodyAttrs, link, style, script, noscript, meta
+		} = context.meta.inject()
 		res.send(html)
 		if (!isProd) {
 			console.log(`whole request: ${Date.now() - s}ms`)

@@ -40,6 +40,7 @@
     "route-cache": "0.4.4",
     "serve-favicon": "^2.5.0",
     "vue": "^2.5.17",
+    "vue-meta": "^1.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.17",
