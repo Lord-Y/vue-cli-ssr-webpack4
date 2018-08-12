@@ -55,5 +55,6 @@ module.exports = {
     "no-mixed-spaces-and-tabs": 0,
     "no-unused-expressions": 0,
     'eqeqeq': [0, 'smart'],
+    'no-var': 0,
   }
 }
