@@ -41,7 +41,7 @@ If the compilation failed, you can do:
 ``` bash
 eslint --fix FILENAME
 ```
-If you're using `vscode` you can lint your code after saving your file by installing `vetur` and `eslint` and then add this to your `User Settings`:
+If you're using `vscode` you can lint your code after saving your file by installing plugins `vetur`, `editorconfig` and `eslint` and then add this to your `User Settings`:
 ```
 "vetur.format.defaultFormatter.js": "vscode-typescript",
 "vetur.format.defaultFormatter.html": "js-beautify-html",
@@ -67,41 +67,56 @@ Then code/open your `vscode` and you're ready to go :)
 Here is my complete `vscode` config:
 ```
 {
-    "editor.minimap.enabled": false,
-    "git.ignoreMissingGitWarning": true,
-    "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
-    "editor.wordWrap": "on",
-    "editor.renderWhitespace": "all",
-    "editor.formatOnSave": true,
-    "explorer.confirmDragAndDrop": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "window.title": "${activeEditorLong}${separator}${rootName}",
-    "terminal.integrated.rendererType": "dom",
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        {
-            "language": "vue",
-            "autoFix": true
-        },
-        {
-            "language": "html",
-            "autoFix": true
-        },
-        {
-            "language": "javascript",
-            "autoFix": true
-        }
-    ],
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false
+	"editor.minimap.enabled": false,
+	"git.ignoreMissingGitWarning": true,
+	"explorer.confirmDelete": false,
+	"window.zoomLevel": 0,
+	"editor.wordWrap": "on",
+	"editor.renderWhitespace": "all",
+	"editor.formatOnSave": true,
+	"explorer.confirmDragAndDrop": false,
+	"workbench.startupEditor": "newUntitledFile",
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false,
+	"window.title": "${activeEditorLong}${separator}${rootName}",
+	"terminal.integrated.rendererType": "dom",
+	"vetur.format.defaultFormatter.js": "vscode-typescript",
+	"vetur.format.defaultFormatter.html": "js-beautify-html",
+	"javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+	"eslint.autoFixOnSave": true,
+	"eslint.validate": [
+		{
+			"language": "vue",
+			"autoFix": true
+		},
+		{
+			"language": "html",
+			"autoFix": true
+		},
+		{
+			"language": "javascript",
+			"autoFix": true
+		}
+	],
+	"editor.tabSize": 2,
+	// "editor.detectIndentation": false,
+	// "editor.insertSpaces": false,
 }
 ```
+
+Here is my complete `editorconfig` config:
+```
+root = true
+
+[*]
+charset = utf-8
+indent_style = tab
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+```
+
 
 ## Environment
 
