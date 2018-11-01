@@ -5,14 +5,15 @@ const express = require("express")
 const favicon = require("serve-favicon")
 const compression = require("compression")
 const microcache = require("route-cache")
+const proxy = require("http-proxy-middleware")
 const resolve = (file) => path.resolve(__dirname, file)
 const { createBundleRenderer } = require("vue-server-renderer")
 
 const isProd = process.env.NODE_ENV === "production"
 const useMicroCache = process.env.MICRO_CACHE !== "false"
 const serverInfo =
-  `express/${require("express/package.json").version} ` +
-  `vue-server-renderer/${require("vue-server-renderer/package.json").version}`
+	`express/${require("express/package.json").version} ` +
+	`vue-server-renderer/${require("vue-server-renderer/package.json").version}`
 
 const app = express()
 
@@ -90,9 +91,11 @@ function render(req, res) {
 		if (err.url) {
 			res.redirect(err.url)
 		} else if (err.code === 404) {
+			// res.redirect("/404").status(404)
 			res.status(404).send("404 | Page Not Found")
 		} else {
 			// Render Error Page or Redirect
+			// res.redirect("/500").status(500)
 			res.status(500).send("500 | Internal Server Error")
 			console.error(`error during render : ${req.url}`)
 			console.error(err.stack)
@@ -101,7 +104,6 @@ function render(req, res) {
 
 	const context = {
 		title: "Vue SSR",
-		meta: "",
 		url: req.url
 	}
 	renderer.renderToString(context, (err, html) => {

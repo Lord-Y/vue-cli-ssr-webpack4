@@ -43,7 +43,9 @@ module.exports = function setupDevServer(app, templatePath, cb) {
 	clientConfig.entry.app = ["webpack-hot-middleware/client", clientConfig.entry.app]
 	clientConfig.output.filename = "[name].js"
 	clientConfig.plugins.push(
-		new webpack.HotModuleReplacementPlugin(),
+		new webpack.HotModuleReplacementPlugin({
+			multiStep: false
+		}),
 		new webpack.NoEmitOnErrorsPlugin()
 	)
 
@@ -54,7 +56,7 @@ module.exports = function setupDevServer(app, templatePath, cb) {
 		noInfo: true,
 		stats: {
 			colors: true,
-			chunks: false
+			chunks: false // do not print chunks
 		}
 	})
 	app.use(devMiddleware)

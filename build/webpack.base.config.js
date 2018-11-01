@@ -2,8 +2,21 @@ const path = require("path")
 const webpack = require("webpack")
 const vueConfig = require("./vue-loader.config")
 const { VueLoaderPlugin } = require("vue-loader")
+const fs = require("fs")
+const envFile = "../config/env.js"
+const env = fs.existsSync(envFile) ? require(envFile) : require("../config/dev.env.js")
+// to debug size of vendor, app and else
+// https://medium.com/@hpux/webpack-4-in-production-how-make-your-life-easier-4d03e2e5b081
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+// https://medium.com/ottofellercom/0-100-in-two-seconds-speed-up-webpack-465de691ed4a
+// https://github.com/mzgoddard/hard-source-webpack-plugin
+// on 1st build, webpack will take more time than usual to compile but the second build will be drastically faster 2min VS 24s
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin")
 
 const isProd = process.env.NODE_ENV === "production"
+// console.log("process.env.NODE_ENV", env)
 module.exports = {
 	devServer: {
 		stats: "errors-only"
@@ -31,34 +44,22 @@ module.exports = {
 		},
 		extensions: [".js", ".vue", ".css", ".scss"]
 	},
+	node: {
+		fs: "empty"
+	},
 	module: {
 		rules: [
 			{
 				enforce: "pre",
 				test: /\.(vue|js)$/,
 				loader: "eslint-loader",
-				exclude: /node_modules/
+				exclude: /(node_modules|src\/assets)/
 			},
 			{
 				test: /\.vue$/,
 				loader: "vue-loader"
 			},
 			{
-				// test: /\.js$/,
-				// loader: 'babel-loader',
-				// exclude: file => (
-				//   /node_modules/.test(file) &&
-				//   !/\.vue\.js/.test(file)
-				// ),
-				// {
-				//   test: /\.js$/,
-				//   use: {
-				//     loader: 'babel-loader',
-				//     options: {
-				//       compact: 'false'
-				//     }
-				//   }
-				// }
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: [{
@@ -66,6 +67,7 @@ module.exports = {
 					// options: { presets: ['es2015'] }
 				}]
 			},
+
 			{
 				test: /\.css$/,
 				use: [
@@ -80,6 +82,7 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
+							minimize: true,
 							modules: true,
 							localIdentName: "[local]_[hash:base64:8]"
 						}
@@ -119,22 +122,12 @@ module.exports = {
 	},
 	performance: {
 		maxEntrypointSize: 400000,
-		hints: isProd ? "warning" : false
+		hints: isProd ? "warning" : false,
+		maxAssetSize: 100000
 	},
 	plugins: [
+		new HardSourceWebpackPlugin(),
 		new VueLoaderPlugin()
-		// isProd
-		//   ? [
-		//     new webpack.optimize.UglifyJsPlugin({
-		//       compress: { warnings: false }
-		//     }),
-		//     new webpack.optimize.ModuleConcatenationPlugin(),
-		//     // new ExtractTextPlugin({
-		//     //   filename: 'common.[chunkhash].css'
-		//     // }),
-		//   ]
-		//   : [
-		//     new FriendlyErrorsPlugin()
-		//   ]
+		// new BundleAnalyzerPlugin()
 	]
 }

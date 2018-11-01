@@ -35,7 +35,7 @@ export default {
 			env: process.env.NODE_ENV,
 			rangeLimit: process.env.RANGE_LIMIT,
 			meta: {
-				title: "Page title",
+				title: "Welcome to Your SSR Template",
 				description: "Yolooo"
 			},
 			loading: {

@@ -4,14 +4,15 @@ import App from "./App.vue"
 import { createStore } from "@store"
 import { createRouter } from "@router"
 import { sync } from "vuex-router-sync"
-// import * as filters from "@filters/filters"
 import VueMeta from "vue-meta"
 Vue.use(VueMeta)
-Vue.config.debug = true
-// // register global utility filters.
-// Object.keys(filters).forEach(key => {
-//     Vue.filter(key, filters[key])
-// })
+import * as filters from "@filters/filters"
+Vue.config.debug = false
+
+// register global utility filters.
+Object.keys(filters).forEach((key) => {
+	Vue.filter(key, filters[key])
+})
 
 export function createApp() {
 	const store = createStore()
