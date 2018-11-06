@@ -104,20 +104,6 @@ Here is my complete `vscode` config:
 }
 ```
 
-Here is my complete `editorconfig` config:
-```
-root = true
-
-[*]
-charset = utf-8
-indent_style = tab
-indent_size = 2
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-```
-
-
 ## Environment
 
 By default, dev file is loaded, to define your production environment, go to `config` directory and then do
@@ -140,7 +126,6 @@ Packages like `vue-loading-spinner` are not fully working
 ## Todos
 
 * Get rid of `webpack` build messages on the console
-* Same for `vue-loading-spinner`
 
 ## Shoutouts
 Shoutout to these projects who inspire me for my purpose:
