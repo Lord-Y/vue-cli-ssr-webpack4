@@ -61,13 +61,12 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
-				use: [{
-					loader: "babel-loader"
-					// options: { presets: ['es2015'] }
-				}]
+				loader: "babel-loader",
+				exclude: /(node_modules)/,
+				options: {
+					plugins: [require("babel-plugin-syntax-dynamic-import")]
+				}
 			},
-
 			{
 				test: /\.css$/,
 				use: [
