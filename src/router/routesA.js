@@ -1,4 +1,4 @@
-import HelloWorld from "@components/HelloWorld.vue"
+const HelloWorld = () => import("@components/HelloWorld.vue")
 
 export default [
 	{
