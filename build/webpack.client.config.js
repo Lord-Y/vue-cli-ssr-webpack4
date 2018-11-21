@@ -58,9 +58,6 @@ const config = merge(base, {
 						compress: {
 							arrows: false,
 							booleans: false,
-							cascade: false,
-							collapse_vars: false,
-							comparisons: false,
 							computed_props: false,
 							hoist_funs: false,
 							hoist_props: false,
