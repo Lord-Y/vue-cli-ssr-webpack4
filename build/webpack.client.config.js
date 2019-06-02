@@ -6,11 +6,12 @@ const VueSSRClientPlugin = require("vue-server-renderer/client-plugin")
 const fs = require("fs"); const path = require("path")
 const envFile = path.resolve(process.cwd(), "config/env.js")
 const env = fs.existsSync(envFile) ? require(envFile) : require("../config/dev.env.js")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const TerserPlugin = require('terser-webpack-plugin')
 const isProd = process.env.NODE_ENV === "production"
 
 const config = merge(base, {
 	entry: {
+		//polyfill: '@babel/polyfill',
 		app: "./src/entry-client.js"
 	},
 	optimization: {
@@ -26,10 +27,10 @@ const config = merge(base, {
 		},
 		minimizer: isProd ? [
 			// we specify a custom UglifyJsPlugin here to get source maps in production
-			new UglifyJsPlugin({
+			new TerserPlugin({
 				cache: true,
 				parallel: true,
-				uglifyOptions: {
+				terserOptions: {
 					output: {
 						comments: false
 					},
@@ -51,13 +52,16 @@ const config = merge(base, {
 			:
 			[
 				// we specify a custom UglifyJsPlugin here to get source maps in production
-				new UglifyJsPlugin({
+				new TerserPlugin({
 					cache: true,
 					parallel: true,
-					uglifyOptions: {
+					terserOptions: {
 						compress: {
 							arrows: false,
 							booleans: false,
+							cascade: false,
+							collapse_vars: false,
+							comparisons: false,
 							computed_props: false,
 							hoist_funs: false,
 							hoist_props: false,

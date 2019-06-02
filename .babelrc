@@ -1,35 +1,22 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
-    "vue"
-  ],
-  "env": {
-    "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": 8
-            }
-          }
-        ]
-      ]
-    }
-  },
-  "plugins": [
-    "syntax-dynamic-import",
-    [
-      "transform-runtime",
-      {
-        "polyfill": true,
-        "regenerator": true
-      }
-    ]
-  ]
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"modules": false,
+				"targets": {
+					"browsers": [
+						"> 1%",
+						"last 2 versions",
+						"not ie <= 8",
+						"ie >= 11"
+					]
+				}
+			}
+		]
+	],
+	"plugins": [
+		"@babel/plugin-syntax-dynamic-import",
+		"@babel/plugin-transform-runtime",
+	]
 }

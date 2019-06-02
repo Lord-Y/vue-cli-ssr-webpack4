@@ -56,7 +56,16 @@ module.exports = function setupDevServer(app, templatePath, cb) {
 		noInfo: true,
 		stats: {
 			colors: true,
-			chunks: false // do not print chunks
+			chunks: false, // do not print chunks
+			assets: false,
+			children: false,
+			'hide-modules': true,
+			hash: false,
+			modules: false,
+			publicPath: false,
+			timings: false,
+			version: false,
+			warnings: true,
 		}
 	})
 	app.use(devMiddleware)
