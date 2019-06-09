@@ -6,6 +6,8 @@ import { createRouter } from "@router"
 import { sync } from "vuex-router-sync"
 import VueMeta from "vue-meta"
 Vue.use(VueMeta)
+import { VueSpinners } from '@saeris/vue-spinners'
+Vue.use(VueSpinners)
 import * as filters from "@filters/filters"
 Vue.config.debug = false
 

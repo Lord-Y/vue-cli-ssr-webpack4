@@ -115,13 +115,9 @@ cp -p prod.env.js env.js
 Some packages doesn't work after compilations like spinners. You can still make them works by whitelist them in `build/webpack.server.config.js`
 ```
 externals: nodeExternals({
-		whitelist: [/\.css$/, /^vue-loading-spinner/, /^vue-spinner/]
+		whitelist: [/\.css$/]
 	}),
 ```
-
-## Not working
-
-Packages like `vue-loading-spinner` are not fully working
 
 ## Todos
 

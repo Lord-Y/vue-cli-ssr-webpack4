@@ -14,13 +14,8 @@
 </template>
 
 <script>
-import { PulseLoader } from "@saeris/vue-spinners";
-
 export default {
 	name: "HelloWorld",
-	components: {
-		PulseLoader
-	},
 	metaInfo() {
 		return {
 			title: this.meta.title,
