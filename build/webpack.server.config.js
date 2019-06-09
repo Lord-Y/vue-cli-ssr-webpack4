@@ -18,7 +18,7 @@ module.exports = merge(base, {
 	// https://webpack.js.org/configuration/externals/#externals
 	// https://github.com/liady/webpack-node-externals
 	externals: nodeExternals({
-		whitelist: [/\.css$/, /^vue-loading-spinner/, /^vue-spinner/]
+		whitelist: [/\.css$/]
 	}),
 	plugins: [
 		new webpack.DefinePlugin({

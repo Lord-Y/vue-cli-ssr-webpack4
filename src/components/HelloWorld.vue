@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <PulseLoader />
+    <PulseLoader
+      :loading="loading.loading.active"
+      :color="loading.loading.color"
+      :size="loading.loading.size"
+    />
     <h1>{{ msg }} - {{ env }}</h1>
     <p>It's time for you to integrate it into your application</p>
     <p>
@@ -10,10 +14,12 @@
 </template>
 
 <script>
+import { PulseLoader } from "@saeris/vue-spinners";
+
 export default {
 	name: "HelloWorld",
 	components: {
-		PulseLoader: () => import("vue-spinner/src/PulseLoader.vue")
+		PulseLoader
 	},
 	metaInfo() {
 		return {
@@ -25,7 +31,7 @@ export default {
 					content: this.meta.description
 				}
 			]
-		}
+		};
 	},
 	data() {
 		return {
@@ -37,23 +43,19 @@ export default {
 			},
 			loading: {
 				loading: {
-					active: false,
-					size: "15px",
+					active: true,
+					size: 15,
 					color: "#26c185"
 				}
 			}
-		}
-	},
-	mounted() {
-		// if you want to updated title after page loaded
-		// this.meta.title = "test"
+		};
 	}
-}
+};
 </script>
 
-<style>
+<style scoped>
 h1,
 h2 {
-  font-weight: normal;
+	font-weight: normal;
 }
 </style>
