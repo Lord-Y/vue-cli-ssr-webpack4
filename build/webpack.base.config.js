@@ -74,8 +74,6 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
-							minimize: true,
-							modules: true,
 							localIdentName: "[local]_[hash:base64:8]"
 						}
 					},
