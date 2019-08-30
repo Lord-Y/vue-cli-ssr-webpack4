@@ -27,13 +27,16 @@ module.exports = {
 			"@statics": path.resolve(__dirname, "../statics"),
 			"@src": path.resolve(__dirname, "../src"),
 			"@components": path.resolve(__dirname, "../src/components"),
+			"@slots": path.resolve(__dirname, "../src/components/slots"),
 			"@router": path.resolve(__dirname, "../src/router"),
 			"@store": path.resolve(__dirname, "../src/store"),
 			"@mixins": path.resolve(__dirname, "../src/mixins"),
 			"@filters": path.resolve(__dirname, "../src/filters"),
 			"@directives": path.resolve(__dirname, "../src/directives"),
 			"@api": path.resolve(__dirname, "../src/api"),
-			"@js": path.resolve(__dirname, "../src/js")
+			"@js": path.resolve(__dirname, "../src/js"),
+			"@locales": path.resolve(__dirname, "../src/locales"),
+			"@utils": path.resolve(__dirname, "../utils")
 		},
 		extensions: [".js", ".vue", ".css", ".scss"]
 	},
@@ -74,8 +77,7 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
-							minimize: true,
-							modules: true,
+							// modules: true,
 							localIdentName: "[local]_[hash:base64:8]"
 						}
 					},
